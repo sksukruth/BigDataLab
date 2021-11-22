@@ -1,0 +1,13 @@
+export HADOOP_HOME="/home/<username>/hadoop2"
+
+export CLASSPATH="$HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.2.jar:$HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-client-common-3.2.2.jar:$HADOOP_HOME/share/hadoop/common/hadoop-common-3.2.2.jar:$HADOOP_HOME/lib/*"
+
+javac -d . driver.java mapper.java reducer.java
+
+gedit Manifest.txt
+
+jar cfm lab.jar Manifest.txt <package>/*.class
+
+$HADOOP_HOME/bin/hadoop jar lab.jar <input-file>.txt output
+
+cat output/*
